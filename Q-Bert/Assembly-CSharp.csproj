@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TileBehaviour.cs" />
+    <Compile Include="Assets\Scripts\maingame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

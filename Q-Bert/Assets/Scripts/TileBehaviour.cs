@@ -22,10 +22,10 @@ public class TileBehaviour : MonoBehaviour
     {
 
         colourCode -= 1;
-        if (colourCode == 0)
+        if (colourCode == 0) // change a tile to have colour code -1
         {
             GetComponent<Renderer>().material = Green;
-       //GameFlow
+            maingame.remainingTiles -= 1;
         }
 
     }
