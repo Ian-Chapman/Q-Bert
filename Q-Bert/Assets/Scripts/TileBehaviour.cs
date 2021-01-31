@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileBehaviour : MonoBehaviour
 {
-    public Material Green;
+    public Material Purple;
     public int colourCode = 1; //Prevent T1 from changing colour at game start
 
     void Start()
@@ -24,7 +24,7 @@ public class TileBehaviour : MonoBehaviour
         colourCode -= 1;
         if (colourCode == 0) // change a tile to have colour code -1
         {
-            GetComponent<Renderer>().material = Green;
+            GetComponent<Renderer>().material = Purple;
             maingame.remainingTiles -= 1;
         }
 

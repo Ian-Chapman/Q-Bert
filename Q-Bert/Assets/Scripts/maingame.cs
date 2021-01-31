@@ -9,7 +9,7 @@ public class maingame : MonoBehaviour
     public Transform redBall;
     void Start()
     {
-        StartCoroutine(spawnRedBall());   
+        //StartCoroutine(spawnRedBall());   
     }
 
     void Update()
@@ -27,11 +27,11 @@ public class maingame : MonoBehaviour
             SceneManager.LoadScene("myMap");
         }
 
-        IEnumerator spawnRedBall()
-        {
-            yield return new WaitForSeconds(3);
-            Instantiate(redBall, new Vector3(0, 2, 0), redBall.rotation);
-        }
+        //IEnumerator spawnRedBall()
+        //{
+        //    yield return new WaitForSeconds(3);
+        //    Instantiate(redBall, new Vector3(0, 2, 0), redBall.rotation);
+        //}
 
     }
 }

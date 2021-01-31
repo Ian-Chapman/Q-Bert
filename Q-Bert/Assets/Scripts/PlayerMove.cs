@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public bool isInAir = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +17,18 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("a")) //jump down left
+       // isInAir = false;
+
+        if (Input.GetKeyDown("a")) //jump down left
         {
+       
             //transform.eulerAngles = new Vector3(-90, 0, 180);
             GetComponent<Rigidbody>().velocity = new Vector3(0, 4, -1);
+
+            //if (isInAir == true)
+            //{
+            //    GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            //}
         }
 
         if (Input.GetKeyDown("w")) //jump up right
