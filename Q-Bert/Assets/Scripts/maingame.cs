@@ -32,6 +32,5 @@ public class maingame : MonoBehaviour
         //    yield return new WaitForSeconds(3);
         //    Instantiate(redBall, new Vector3(0, 2, 0), redBall.rotation);
         //}
-
     }
 }
