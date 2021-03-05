@@ -7,6 +7,9 @@ TagManager:
   - Qbert_Idle_Left_Down-1
   - Red_Ball_Bounce
   - Ground
+  - tile
+  - Green_Ball_Bounce
+  - Elevator_Stop
   layers:
   - Default
   - TransparentFX

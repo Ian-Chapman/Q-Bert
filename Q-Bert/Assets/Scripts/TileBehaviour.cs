@@ -27,6 +27,9 @@ public class TileBehaviour : MonoBehaviour
             {
                 GetComponent<Renderer>().material = Purple;
                 maingame.remainingTiles -= 1;
+
+                maingame.score += 25; // 25 points per tile
+                Debug.Log(maingame.score);
             }
         }
     }

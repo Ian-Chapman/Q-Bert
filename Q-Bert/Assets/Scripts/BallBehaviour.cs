@@ -13,7 +13,10 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (maingame.death == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision other)

@@ -58,17 +58,30 @@ public class PlayerMove : MonoBehaviour
             maingame.remainingLives -= 1;
             Debug.Log(maingame.remainingLives);
         }
+
+        if (other.tag == "Elevator_Stop")
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 4, -1);
+        }
+
     }
-
-
-
-
-
 
 
     private void OnCollisionEnter(Collision other)
     {
-        StartCoroutine(delayPlayerMove());
+        if (other.gameObject.tag == "tile")
+        {
+            StartCoroutine(delayPlayerMove());
+        }
+
+        if (other.gameObject.tag == "Red_Ball_Bounce") // do this for coily ball too.
+        {
+            maingame.death = true;
+            maingame.remainingLives -= 1;
+            GetComponent<Transform>().position = new Vector3(0, 1, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            StartCoroutine(delayDeath());
+        }
     }
 
     IEnumerator delayPlayerMove()
@@ -77,4 +90,9 @@ public class PlayerMove : MonoBehaviour
         isInAir = false;
     }
 
+    IEnumerator delayDeath()
+    {
+        yield return new WaitForSeconds(.1f);
+        maingame.death = false;
+    }
 }
