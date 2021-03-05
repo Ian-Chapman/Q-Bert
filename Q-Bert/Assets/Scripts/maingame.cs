@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class maingame : MonoBehaviour
 {
     public static int remainingTiles = 28;
-    public Transform redBall;
+    public static int remainingLives = 3;
+    public Transform redBallBounceObj;
+
     void Start()
     {
-        //StartCoroutine(spawnRedBall());   
+        StartCoroutine(spawnRedBallBounce());
     }
 
     void Update()
@@ -17,8 +19,9 @@ public class maingame : MonoBehaviour
         if (remainingTiles == 0)
         {
             Debug.Log("Win");
-            StartCoroutine(newLevel());
+            StartCoroutine(newLevel()); //check for all tiles changed - reset the level
         }
+    }
 
         IEnumerator newLevel() //reload the level - may add other menus to load here later or remove for end game animation
         {
@@ -27,10 +30,14 @@ public class maingame : MonoBehaviour
             SceneManager.LoadScene("myMap");
         }
 
-        //IEnumerator spawnRedBall()
-        //{
-        //    yield return new WaitForSeconds(3);
-        //    Instantiate(redBall, new Vector3(0, 2, 0), redBall.rotation);
-        //}
-    }
+       
+        IEnumerator spawnRedBallBounce()
+        {
+            yield return new WaitForSeconds(3); //Spawn 3 seconds after game begins
+            Instantiate(redBallBounceObj, new Vector3(0, 2, 0), redBallBounceObj.rotation); //Ball will spawn above top tile
+
+            StartCoroutine(spawnRedBallBounce()); //Recursive
+        }
+
+    
 }

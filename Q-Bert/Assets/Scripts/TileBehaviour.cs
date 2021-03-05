@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileBehaviour : MonoBehaviour
 {
     public Material Purple;
-    public int colourCode = 1; //Prevent T1 from changing colour at game start
+    public int colourCode = 1; //Prevent T1 from changing color at game start
 
     void Start()
     {
@@ -20,13 +20,14 @@ public class TileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) //for collision with any other game object
     {
-
-        colourCode -= 1;
-        if (colourCode == 0) // change a tile to have colour code -1
+        if (other.gameObject.tag == "Qbert_Idle_Left_Down-1") // OR other Qbert animations to be used later
         {
-            GetComponent<Renderer>().material = Purple;
-            maingame.remainingTiles -= 1;
+            colourCode -= 1;
+            if (colourCode == 0) // change a tile to have color code -1
+            {
+                GetComponent<Renderer>().material = Purple;
+                maingame.remainingTiles -= 1;
+            }
         }
-
     }
 }
