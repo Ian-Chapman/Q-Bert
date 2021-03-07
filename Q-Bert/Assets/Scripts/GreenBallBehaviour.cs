@@ -40,6 +40,4 @@ public class GreenBallBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

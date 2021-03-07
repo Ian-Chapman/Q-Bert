@@ -9,6 +9,8 @@ public class maingame : MonoBehaviour
     public static int remainingTiles = 28;
     public static int remainingLives = 3;
     public static bool death = false; //lost a life
+    //public static bool isCoilyBallActive = false;
+    //public static bool isCoilyActive = false;
     public static int score = 0;
     public Text UIScore;
 
@@ -61,6 +63,5 @@ public class maingame : MonoBehaviour
 
         StartCoroutine(spawnGreenBallBounce()); //Recursive
         }
-
 
 }
